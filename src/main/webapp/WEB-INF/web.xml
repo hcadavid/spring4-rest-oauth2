@@ -10,11 +10,8 @@
         </session-timeout>
     </session-config>
     
-    <!--<listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>-->
     
-     <!-- Spring child -->
+     <!-- SPRING MVC -->
     <servlet>
         <servlet-name>api</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -22,11 +19,18 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>api</servlet-name>
-        <url-pattern>/rest/*</url-pattern>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
     
     
-    <!--<filter>
+    <!--SPRING SECURITY-->
+    
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    
+    <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>
             org.springframework.web.filter.DelegatingFilterProxy
@@ -36,7 +40,7 @@
     <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>-->
+    </filter-mapping>
 
     
 </web-app>
