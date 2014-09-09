@@ -5,7 +5,7 @@ Minimalist integration example for:
 - Spring Security / OAuth2
 
 In this example REST services (implemented with Spring MVC) with certain prefix 
-are secured with a token-based authentication strategy (trough Spring Security
+are secured with a token-based authentication strategy (through Spring Security
 Oauth2 modules).
 
 
