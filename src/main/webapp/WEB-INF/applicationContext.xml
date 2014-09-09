@@ -55,6 +55,8 @@
     </bean>
      
     <bean id="clientDetails" class="edu.eci.test.AAAGuestServiceImpl">     
+        <property name="id" value="mysupplycompany" />
+        <property name="secretKey" value="mycompanykey" />
     </bean>
      
     <sec:authentication-manager id="userAuthenticationManager">

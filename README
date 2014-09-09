@@ -4,13 +4,27 @@ Minimalist integration example for:
 - Spring MVC for REST Services
 - Spring Security / OAuth2
 
+In this example REST services (implemented with Spring MVC) with certain prefix 
+are secured with a token-based authentication strategy (trough Spring Security
+Oauth2 modules).
 
-Based on several online resources:
+
+Special thanks to techannotation:
+
+http://techannotation.wordpress.com/2014/04/29/5-minutes-with-spring-oauth-2-0/
+
+Also based on other online resources:
 
 http://malalanayake.wordpress.com/2014/06/27/spring-security-on-rest-api/
 http://www.hsc.com/Portals/0/Uploads/Articles/WP_Securing_RESTful_WebServices_OAuth2635406646412464000.pdf
 http://www.programming-free.com/2014/01/spring-mvc-40-restful-web-services.html
-http://techannotation.wordpress.com/2014/04/29/5-minutes-with-spring-oauth-2-0/
+
+
+
+Sample token request:
+http://localhost:8080/oauth2-prueba/oauth/token?username=myuser&password=mypassword&client_id=mysupplycompany&client_secret=mycompanykey&grant_type=password&scope=read
+
+
 
 
 hector.cadavid@escuelaing.edu.co

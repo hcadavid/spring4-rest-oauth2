@@ -21,21 +21,28 @@ import org.springframework.security.core.GrantedAuthority;
 public class AAAUserAuthenticationProvider implements AuthenticationProvider{
 
     @Override
-    public Authentication authenticate(Authentication a) throws AuthenticationException {
-        String user=a.getPrincipal().toString();
-        String pwd=a.getCredentials().toString();
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        String user=authentication.getPrincipal().toString();
+        String pwd=authentication.getCredentials().toString();
         
-        if (user.equals("scott") && pwd.equals("tiger")) {
-            List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-            AAAUserAuthenticationToken auth =
-  
-            new AAAUserAuthenticationToken(user,
-            pwd, grantedAuthorities);
+        //PUT Auth Bean here
+        
+        boolean result=user.equals("myuser") && pwd.equals("mypassword");
+                //= aaaProxy.isValidUser(authentication.getPrincipal()
+                //.toString(), authentication.getCredentials().toString());
  
+        if (result) {
+            List<GrantedAuthority> grantedAuthorities
+                    = new ArrayList<GrantedAuthority>();
+            AAAUserAuthenticationToken auth
+                    = new AAAUserAuthenticationToken(authentication.getPrincipal(),
+                            authentication.getCredentials(), grantedAuthorities);
+
             return auth;
         } else {
             throw new BadCredentialsException("Bad User Credentials.");
         }
+        
     }
 
     @Override
@@ -44,5 +51,5 @@ public class AAAUserAuthenticationProvider implements AuthenticationProvider{
     }
     
     
-    
+
 }

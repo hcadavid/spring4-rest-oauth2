@@ -20,10 +20,14 @@ import org.springframework.security.oauth2.provider.client.BaseClientDetails;
  */
 public class AAAGuestServiceImpl implements ClientDetailsService {
 
+    
+    private String id;
+    private String secretKey;
+    
     @Override
     public ClientDetails loadClientByClientId(String clientId) throws ClientRegistrationException {
         
-        if (clientId.equals("hector"))
+        if (clientId.equals(id))
         {
             List<String> authorizedGrantTypes = new ArrayList<String>();
             authorizedGrantTypes.add("password");
@@ -31,8 +35,8 @@ public class AAAGuestServiceImpl implements ClientDetailsService {
             authorizedGrantTypes.add("client_credentials");
  
             BaseClientDetails clientDetails = new BaseClientDetails();
-            clientDetails.setClientId("hector");
-            clientDetails.setClientSecret("hector123");
+            clientDetails.setClientId(id);
+            clientDetails.setClientSecret(secretKey);
             clientDetails.setAuthorizedGrantTypes(authorizedGrantTypes);
              
             return clientDetails;
@@ -44,6 +48,21 @@ public class AAAGuestServiceImpl implements ClientDetailsService {
         
     }
     
+    public String getId() {
+        return id;
+    }
+ 
+    public void setId(String id) {
+        this.id = id;
+    }
+ 
+    public String getSecretKey() {
+        return secretKey;
+    }
+ 
+    public void setSecretKey(String secretKey) {
+        this.secretKey = secretKey;
+    }
     
     
 }
